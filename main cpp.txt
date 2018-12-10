@@ -1,0 +1,34 @@
+#pragma once
+#include "Fraction.h"
+int main()
+{
+	{
+		//Fraction f1(12, 25);
+		Fraction f1;
+		Fraction f2;
+		Fraction f3(1,3);
+		f2.fraction_input();
+		f1 = f2 / f3;
+		f1.fraction_reduce();
+		f1.fraction_output();
+		//f2.fraction_output();//1/2
+		cout << endl;
+		//Fraction f4 = f2.Plus(f3);
+		//Fraction f5 = f2.Minus(f3);
+		//Fraction f6 = f2.Multiply(f3);
+		//Fraction f7 = f2.Divide(f3);
+		//
+		//cout << f1.getnum() << '/' << f1.getdenum() << endl;
+		//cout << f2.getnum() << '/' << f2.getdenum() << endl;
+		//cout << f3.getnum() << '\\' << f3.getdenum() << endl;
+		//f4.fraction_output();
+		/*cout << endl;
+		f5.fraction_output();
+		cout << endl;
+		f6.fraction_output();
+		cout << endl;
+		f7.fraction_output();*/
+	}
+	system("pause");
+	return 0;
+}

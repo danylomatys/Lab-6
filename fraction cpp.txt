@@ -1,0 +1,93 @@
+#pragma once
+#include "Fraction.h"
+
+
+Fraction::Fraction()
+{
+	//cout << "ctor without params" << endl;
+	numerator = 0; denuminator = 1; 
+}
+
+Fraction::Fraction(int _numerator, int _denuminator)
+{
+	//cout << "ctor with two params" << endl;
+	numerator = _numerator;
+	denuminator = _denuminator;
+
+}
+
+Fraction::Fraction(int numerator)
+{
+	//cout << "ctor with one param" << endl;
+	this->numerator = numerator;
+	denuminator = 1;
+}
+
+int Fraction::getnum()
+{
+	return numerator;
+}
+
+int Fraction::getdenum()
+{
+	return denuminator;
+}
+
+void Fraction::fraction_input()
+{
+	cout << "Enter numerator" << endl;
+	cin >> numerator;
+	cout << "Enter denominator" << endl;
+	cin >> denuminator;
+	
+}
+
+void Fraction::fraction_output() 
+{
+	fraction_reduce();
+	cout << numerator << '/' << denuminator;
+}
+
+void Fraction::fraction_reduce() 
+{
+	int i;
+	int min = 0;
+	if (numerator > denuminator)
+		min = denuminator;
+	else
+		min = numerator;
+	for (i = 2; i <= numerator; ++i)
+		while(numerator%i== 0 && denuminator %i== 0)
+		numerator /= i, denuminator /= i;
+
+
+
+}
+
+Fraction Fraction::Plus(Fraction f)
+{
+	int n = numerator*f.denuminator + f.numerator*denuminator;
+	int d = denuminator*f.denuminator;
+	return Fraction(n, d);
+}
+
+Fraction Fraction::Minus(Fraction f)
+{
+	int n = numerator*f.denuminator - f.numerator*denuminator;
+	int d = denuminator*f.denuminator;
+	return Fraction(n, d);
+}
+
+Fraction Fraction::Multiply(Fraction f)
+{
+	int n = numerator*f.numerator;
+	int d = denuminator*f.denuminator;
+	return Fraction(n,d);
+}
+
+Fraction Fraction::Divide(Fraction f)
+{
+	int n = numerator*f.denuminator;
+	int d = denuminator*f.numerator;
+	return Fraction(n,d);
+}

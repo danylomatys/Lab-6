@@ -1,0 +1,54 @@
+#pragma once
+#include <iostream>
+using namespace std;
+class Fraction {
+	int numerator;
+	int denuminator;
+	
+public:
+	//ctors
+	Fraction();
+	Fraction(int _numerator, int _denuminator);
+	Fraction(int numerator);
+	//dtor
+	~Fraction()
+	{
+		cout << "run dtor" << endl;
+	}
+
+	int getnum();
+	int getdenum();
+
+
+	void fraction_input();
+	void fraction_output();
+	void fraction_reduce();
+	Fraction Plus(Fraction f) ;
+	Fraction Minus(Fraction f) ;
+	Fraction Multiply(Fraction f) ;
+	Fraction Divide(Fraction f) ;
+	Fraction friend operator+(Fraction &f1, Fraction &f2) {
+		Fraction result;
+		result.numerator = f2.numerator*f1.denuminator + f1.numerator*f2.denuminator;
+		result.denuminator = f2.denuminator*f1.denuminator;
+		return result;
+	}
+	Fraction friend operator*(Fraction &f1, Fraction &f2) {
+		Fraction result;
+		result.numerator = f2.numerator*f1.numerator;
+		result.denuminator = f2.denuminator*f1.denuminator;
+		return result;
+	}
+	Fraction friend operator-(Fraction &f1, Fraction &f2) {
+		Fraction result;
+		result.numerator = f2.numerator*f1.denuminator - f1.numerator*f2.denuminator;
+		result.denuminator = f2.denuminator*f1.denuminator;
+		return result;
+	}
+	Fraction friend operator/(Fraction &f1, Fraction &f2) {
+		Fraction result;
+		result.numerator = f2.numerator*f1.denuminator;
+		result.denuminator = f2.denuminator*f1.numerator;
+		return result;
+	}
+};
